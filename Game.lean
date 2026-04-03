@@ -1,11 +1,14 @@
 import Game.Levels.DemoWorld
 
 -- Here's what we'll put on the title screen
-Title "Hello World Game"
+Title "Math 323 Game"
 Introduction
 "
-This text appears on the starting page where one selects the world/level to play.
-You can use **markdown**.
+Welcome to the Math 323 Game! This game is meant to accompany the course
+*Math 323: Formal Mathematical Reasoning and Writing* at the University of Arizona.
+
+This game was developed by the UA Mathematics Lean Group under the leadership of
+Sergey Cherkis and Rafa Munoz-Grenier.
 "
 
 Info "
