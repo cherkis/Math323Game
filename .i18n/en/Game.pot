@@ -1,31 +1,178 @@
 msgid ""
-msgstr "Project-Id-Version: Game v4.23.0\n"
+msgstr "Project-Id-Version: Game v4.28.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03\n"
+"POT-Creation-Date: 2026-04-04\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: GameServer.RpcHandlers
-msgid "level completed with warnings… 🎭"
+#: Game.Levels.S6_Functions.L15
+msgid "Image, Preimage, and Inverses"
 msgstr ""
 
-#: GameServer.RpcHandlers
-msgid "level completed! 🎉"
+#: Game
+msgid "Welcome to Math 323 Game! This game is designed to accompany the course\n"
+"*Math 323: Formal Mathematical Reasoning and Writing* at the University of Arizona.\n"
+"\n"
+"This game was developed by\n"
+"Jason Aubrey, Sergey Cherkis, and Rafa Munoz-Grenier."
 msgstr ""
 
-#. §0: `«{g}»`
-#: Game.Levels.S1_PropositionalLogic.L01
-msgid "You should use §0 now."
+#: Game.Levels.S11_Topology.L27
+msgid "Compactness and Continuity"
+msgstr ""
+
+#: Game.Levels.S7_Cardinality.L17
+msgid "This level is the scaffold for Lecture L17 of Math 323.\n"
+"Topic: The Schroeder-Bernstein theorem."
+msgstr ""
+
+#: Game.Levels.S4_Sets.L10
+msgid "This level is the scaffold for Lecture L10 of Math 323.\n"
+"Topic: Sets as predicates, membership, operations, and extensionality."
+msgstr ""
+
+#: Game.Levels.S9_SupremumInfimum
+msgid "This world contains the lecture scaffold for Stage 9 of Math 323.\n"
+"Lectures L22-L23 cover supremum and infimum."
 msgstr ""
 
 #: GameServer.RpcHandlers
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
-#: Game.Levels.S1_PropositionalLogic.L01
+#: Game.Levels.S1_LeanAndLogic.L01
+msgid "Type Theory and Lean Syntax"
+msgstr ""
+
+#: Game.Levels.S2_PredicateLogic
+msgid "This world contains the lecture scaffold for Stage 2 of Math 323.\n"
+"Lectures L05-L06 introduce predicates and quantifiers."
+msgstr ""
+
+#: Game.Levels.S2_PredicateLogic.L06
+msgid "Quantifiers in Examples"
+msgstr ""
+
+#: Game.Levels.S4_Sets.L11
+msgid "Power Sets and De Morgan Laws"
+msgstr ""
+
+#: Game.Levels.S2_PredicateLogic.L05
+msgid "Universal and Existential Quantifiers"
+msgstr ""
+
+#: Game.Levels.S10_SequencesLimits.L24
+msgid "This level is the scaffold for Lecture L24 of Math 323.\n"
+"Topic: Epsilon-N definitions of limits."
+msgstr ""
+
+#: Game.Levels.S2_PredicateLogic
+msgid "Predicate Logic"
+msgstr ""
+
+#: Game.Levels.S8_NumberSystems.L21
+msgid "Archimedean Property and Floor"
+msgstr ""
+
+#: Game.Levels.S9_SupremumInfimum.L22
+msgid "This level is the scaffold for Lecture L22 of Math 323.\n"
+"Topic: Supremum, completeness of Real, and approximation properties."
+msgstr ""
+
+#: Game.Levels.S7_Cardinality.L16
+msgid "This level is the scaffold for Lecture L16 of Math 323.\n"
+"Topic: Countability, bijections between Nat and Int, and Cantor's diagonal argument."
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic
+msgid "This world contains the lecture scaffold for Stage 1 of Math 323.\n"
+"Lectures L01-L04 introduce Lean foundations and propositional logic."
+msgstr ""
+
+#: Game.Levels.S7_Cardinality.L17
+msgid "Schroeder-Bernstein"
+msgstr ""
+
+#: Game.Levels.S2_PredicateLogic.L05
+msgid "This level is the scaffold for Lecture L05 of Math 323.\n"
+"Topic: Universal and existential quantifiers."
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L02
+msgid "Implication, False, and True"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed with warnings… 🎭"
+msgstr ""
+
+#: Game.Levels.S4_Sets.L11
+msgid "This level is the scaffold for Lecture L11 of Math 323.\n"
+"Topic: Indexed families, power sets, and De Morgan laws."
+msgstr ""
+
+#: Game.Levels.S3_Induction.L08
+msgid "This level is the scaffold for Lecture L08 of Math 323.\n"
+"Topic: Sigma and Pi types, dependent types, and library exploration."
+msgstr ""
+
+#: Game.Levels.S8_NumberSystems
+msgid "Number Systems"
+msgstr ""
+
+#: Game.Levels.S7_Cardinality.L18
+msgid "Unique Existence"
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L01
+msgid "This level is the scaffold for Lecture L01 of Math 323.\n"
+"Topic: Type theory, Lean syntax, and term-mode proofs."
+msgstr ""
+
+#: Game.Levels.S11_Topology
+msgid "This world contains the lecture scaffold for Stage 11 of Math 323.\n"
+"Lectures L26-L27 cover topology of the real line."
+msgstr ""
+
+#: Game.Levels.S8_NumberSystems.L20
+msgid "Number Systems and Coercions"
+msgstr ""
+
+#: Game.Levels.S7_Cardinality.L18
+msgid "This level is the scaffold for Lecture L18 of Math 323.\n"
+"Topic: Classical witness extraction and unique existence."
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L01
+#: Game.Levels.S1_LeanAndLogic.L02
+#: Game.Levels.S1_LeanAndLogic.L03
+#: Game.Levels.S1_LeanAndLogic.L04
+#: Game.Levels.S2_PredicateLogic.L05
+#: Game.Levels.S2_PredicateLogic.L06
+#: Game.Levels.S3_Induction.L07
+#: Game.Levels.S3_Induction.L08
+#: Game.Levels.S3_Induction.L09
+#: Game.Levels.S4_Sets.L10
+#: Game.Levels.S4_Sets.L11
+#: Game.Levels.S5_Relations.L12
+#: Game.Levels.S5_Relations.L13
+#: Game.Levels.S6_Functions.L14
+#: Game.Levels.S6_Functions.L15
+#: Game.Levels.S7_Cardinality.L16
+#: Game.Levels.S7_Cardinality.L17
+#: Game.Levels.S7_Cardinality.L18
+#: Game.Levels.S7_Cardinality.L19
+#: Game.Levels.S8_NumberSystems.L20
+#: Game.Levels.S8_NumberSystems.L21
+#: Game.Levels.S9_SupremumInfimum.L22
+#: Game.Levels.S9_SupremumInfimum.L23
+#: Game.Levels.S10_SequencesLimits.L24
+#: Game.Levels.S10_SequencesLimits.L25
+#: Game.Levels.S11_Topology.L26
+#: Game.Levels.S11_Topology.L27
 msgid "This last message appears if the level is solved."
 msgstr ""
 
@@ -33,38 +180,295 @@ msgstr ""
 msgid "Game version 0.1, University of Arizona Lean Group, https://github.com/cherkis/Math323Game."
 msgstr ""
 
+#: Game.Levels.S9_SupremumInfimum.L22
+msgid "Supremum"
+msgstr ""
+
+#: Game.Levels.S3_Induction.L09
+msgid "Summation Formulas"
+msgstr ""
+
+#: Game.Levels.S9_SupremumInfimum
+msgid "Supremum and Infimum"
+msgstr ""
+
+#: Game.Levels.S6_Functions
+msgid "Functions"
+msgstr ""
+
+#: Game.Levels.S5_Relations.L12
+msgid "This level is the scaffold for Lecture L12 of Math 323.\n"
+"Topic: Binary relations, equivalence relations, and modular arithmetic."
+msgstr ""
+
+#: Game.Levels.S10_SequencesLimits
+msgid "Sequences and Limits"
+msgstr ""
+
+#: Game.Levels.S10_SequencesLimits
+msgid "This world contains the lecture scaffold for Stage 10 of Math 323.\n"
+"Lectures L24-L25 cover sequences and limits."
+msgstr ""
+
+#: Game.Levels.S5_Relations.L13
+msgid "This level is the scaffold for Lecture L13 of Math 323.\n"
+"Topic: Quotient types, well-definedness, and residue classes."
+msgstr ""
+
+#: Game.Levels.S3_Induction
+msgid "Induction"
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L02
+msgid "This level is the scaffold for Lecture L02 of Math 323.\n"
+"Topic: Implication, False, True, and tactic mode basics."
+msgstr ""
+
+#: Game.Levels.S6_Functions.L15
+msgid "This level is the scaffold for Lecture L15 of Math 323.\n"
+"Topic: Image, preimage, inverses, and the axiom of choice."
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L03
+msgid "Conjunction, Equivalence, and Negation"
+msgstr ""
+
+#: Game
+msgid "Math 323 Game"
+msgstr ""
+
+#: GameServer.RpcHandlers
+msgid "level completed! 🎉"
+msgstr ""
+
+#: Game.Levels.S11_Topology.L27
+msgid "This level is the scaffold for Lecture L27 of Math 323.\n"
+"Topic: Compactness, continuity, and Heine-Borel."
+msgstr ""
+
+#: Game.Levels.S8_NumberSystems.L21
+msgid "This level is the scaffold for Lecture L21 of Math 323.\n"
+"Topic: The Archimedean property, floor function, and density arguments."
+msgstr ""
+
+#: Game.Levels.S7_Cardinality
+msgid "This world contains the lecture scaffold for Stage 7 of Math 323.\n"
+"Lectures L16-L19 cover cardinality."
+msgstr ""
+
+#: Game.Levels.S7_Cardinality
+msgid "Cardinality"
+msgstr ""
+
+#: Game.Levels.S3_Induction.L09
+msgid "This level is the scaffold for Lecture L09 of Math 323.\n"
+"Topic: Summation formulas and multi-step arithmetic proofs."
+msgstr ""
+
+#: Game.Levels.S4_Sets
+msgid "This world contains the lecture scaffold for Stage 4 of Math 323.\n"
+"Lectures L10-L11 cover sets and the logic-set dictionary."
+msgstr ""
+
+#: Game.Levels.S6_Functions.L14
+msgid "Injections and Surjections"
+msgstr ""
+
 #: Game
 msgid "Game for Math323 course at the University of Arizona."
 msgstr ""
 
-#: Game.Levels.S1_PropositionalLogic.L01
-msgid "Let us start with a few Lean tactics to handle basic logic operations. For each proposition we need to learn how\n"
-"- go about proving it (if that is our goal) or\n"
-"- how to use it (if it is one of our hypotheses)."
+#: Game.Levels.S7_Cardinality.L19
+msgid "This level is the scaffold for Lecture L19 of Math 323.\n"
+"Topic: The line-equals-plane interleaving bijection."
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L03
+msgid "This level is the scaffold for Lecture L03 of Math 323.\n"
+"Topic: Conjunction, equivalence, and negation."
+msgstr ""
+
+#: Game.Levels.S5_Relations.L13
+msgid "Quotients and Residue Classes"
+msgstr ""
+
+#: Game.Levels.S6_Functions
+msgid "This world contains the lecture scaffold for Stage 6 of Math 323.\n"
+"Lectures L14-L15 cover functions, image/preimage, and inverses."
+msgstr ""
+
+#: Game.Levels.S11_Topology.L26
+msgid "Open and Closed Sets"
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L04
+msgid "This level is the scaffold for Lecture L04 of Math 323.\n"
+"Topic: Disjunction, case splits, and first rewrites."
+msgstr ""
+
+#: Game.Levels.S9_SupremumInfimum.L23
+msgid "Infimum"
+msgstr ""
+
+#: Game.Levels.S7_Cardinality.L16
+msgid "Countability"
 msgstr ""
 
 #: Game
 msgid "Math323 Game"
 msgstr ""
 
-#: Game
-msgid "Welcome to Math 323 Game! This game is designed to accompany the course\n"
-"*Math 323: Formal Mathematical Reasoning and Writing* at the University of Arizona.\n"
-"\n"
-"This game was developed by the UA Mathematics Lean Group under the leadership of\n"
-"Jason Aubrey, Sergey Cherkis, and Rafa Munoz-Grenier."
+#: Game.Levels.S8_NumberSystems
+msgid "This world contains the lecture scaffold for Stage 8 of Math 323.\n"
+"Lectures L20-L21 cover number systems and real-analysis tools."
+msgstr ""
+
+#: Game.Levels.S6_Functions.L14
+msgid "This level is the scaffold for Lecture L14 of Math 323.\n"
+"Topic: Injections, surjections, bijections, and composition."
+msgstr ""
+
+#: Game.Levels.S3_Induction.L07
+msgid "This level is the scaffold for Lecture L07 of Math 323.\n"
+"Topic: Peano axioms, custom inductive types, and structural induction."
+msgstr ""
+
+#: Game.Levels.S11_Topology
+msgid "Topology"
+msgstr ""
+
+#: Game.Levels.S10_SequencesLimits.L24
+msgid "Limits of Sequences"
+msgstr ""
+
+#: Game.Levels.S8_NumberSystems.L20
+msgid "This level is the scaffold for Lecture L20 of Math 323.\n"
+"Topic: Nat, Int, Rat, Real, field structure, and coercions."
+msgstr ""
+
+#: Game.Levels.S3_Induction.L07
+msgid "Induction on Natural Numbers"
+msgstr ""
+
+#: Game.Levels.S3_Induction.L08
+msgid "Dependent Types and Exploration"
+msgstr ""
+
+#: Game.Levels.S5_Relations
+msgid "This world contains the lecture scaffold for Stage 5 of Math 323.\n"
+"Lectures L12-L13 cover relations, equivalence, and quotients."
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic
+msgid "Lean and Logic"
+msgstr ""
+
+#. §0: `«{g}»`
+#: Game.Levels.S1_LeanAndLogic.L04
+#: Game.Levels.S2_PredicateLogic.L05
+#: Game.Levels.S2_PredicateLogic.L06
+#: Game.Levels.S3_Induction.L07
+#: Game.Levels.S3_Induction.L08
+#: Game.Levels.S3_Induction.L09
+#: Game.Levels.S4_Sets.L10
+#: Game.Levels.S4_Sets.L11
+#: Game.Levels.S5_Relations.L12
+#: Game.Levels.S5_Relations.L13
+#: Game.Levels.S6_Functions.L14
+#: Game.Levels.S6_Functions.L15
+#: Game.Levels.S7_Cardinality.L16
+#: Game.Levels.S7_Cardinality.L17
+#: Game.Levels.S7_Cardinality.L18
+#: Game.Levels.S7_Cardinality.L19
+#: Game.Levels.S8_NumberSystems.L20
+#: Game.Levels.S8_NumberSystems.L21
+#: Game.Levels.S9_SupremumInfimum.L22
+#: Game.Levels.S9_SupremumInfimum.L23
+#: Game.Levels.S10_SequencesLimits.L24
+#: Game.Levels.S10_SequencesLimits.L25
+#: Game.Levels.S11_Topology.L26
+#: Game.Levels.S11_Topology.L27
+msgid "You should use §0 now."
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L04
+msgid "Disjunction and Case Splits"
+msgstr ""
+
+#: Game.Levels.S10_SequencesLimits.L25
+msgid "This level is the scaffold for Lecture L25 of Math 323.\n"
+"Topic: Monotone sequences and Cauchy sequences."
+msgstr ""
+
+#: Game.Levels.S10_SequencesLimits.L25
+msgid "Monotone and Cauchy Sequences"
+msgstr ""
+
+#: Game.Levels.S5_Relations
+msgid "Relations"
+msgstr ""
+
+#: Game.Levels.S3_Induction
+msgid "This world contains the lecture scaffold for Stage 3 of Math 323.\n"
+"Lectures L07-L09 cover induction and arithmetic on Nat."
+msgstr ""
+
+#: Game.Levels.S11_Topology.L26
+msgid "This level is the scaffold for Lecture L26 of Math 323.\n"
+"Topic: Open and closed sets, interiors, and closures."
+msgstr ""
+
+#: Game.Levels.S9_SupremumInfimum.L23
+msgid "This level is the scaffold for Lecture L23 of Math 323.\n"
+"Topic: Infimum, separation theorems, and nested intervals."
+msgstr ""
+
+#: Game.Levels.S5_Relations.L12
+msgid "Relations and Modular Arithmetic"
+msgstr ""
+
+#: Game.Levels.S7_Cardinality.L19
+msgid "Interleaving Bijection"
+msgstr ""
+
+#: Game.Levels.S2_PredicateLogic.L06
+msgid "This level is the scaffold for Lecture L06 of Math 323.\n"
+"Topic: Quantifiers with concrete examples."
+msgstr ""
+
+#: Game.Levels.S4_Sets
+msgid "Sets"
 msgstr ""
 
 #. §0: `«{h}»`
 #. §1: `«{g}»`
-#: Game.Levels.S1_PropositionalLogic.L01
+#: Game.Levels.S1_LeanAndLogic.L04
+#: Game.Levels.S2_PredicateLogic.L05
+#: Game.Levels.S2_PredicateLogic.L06
+#: Game.Levels.S3_Induction.L07
+#: Game.Levels.S3_Induction.L08
+#: Game.Levels.S3_Induction.L09
+#: Game.Levels.S4_Sets.L10
+#: Game.Levels.S4_Sets.L11
+#: Game.Levels.S5_Relations.L12
+#: Game.Levels.S5_Relations.L13
+#: Game.Levels.S6_Functions.L14
+#: Game.Levels.S6_Functions.L15
+#: Game.Levels.S7_Cardinality.L16
+#: Game.Levels.S7_Cardinality.L17
+#: Game.Levels.S7_Cardinality.L18
+#: Game.Levels.S7_Cardinality.L19
+#: Game.Levels.S8_NumberSystems.L20
+#: Game.Levels.S8_NumberSystems.L21
+#: Game.Levels.S9_SupremumInfimum.L22
+#: Game.Levels.S9_SupremumInfimum.L23
+#: Game.Levels.S10_SequencesLimits.L24
+#: Game.Levels.S10_SequencesLimits.L25
+#: Game.Levels.S11_Topology.L26
+#: Game.Levels.S11_Topology.L27
 msgid "You can either start using §0 or §1."
 msgstr ""
 
-#: Game.Levels.S1_PropositionalLogic.L01
-msgid "Introduction to Lean"
-msgstr ""
-
-#: Game
-msgid "Math 323 Game"
+#: Game.Levels.S4_Sets.L10
+msgid "Sets as Predicates"
 msgstr ""

@@ -1,11 +1,14 @@
 import Game.Metadata
 
-World "Propositional Logic"
+World "Topology"
 Level 2
 
-Title "Logic operations"
+Title "Compactness and Continuity"
 
-Introduction "INSTRUCTIONS HERE."
+Introduction "
+This level is the scaffold for Lecture L27 of Math 323.
+Topic: Compactness, continuity, and Heine-Borel.
+"
 
 Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
   Hint "You can either start using `{h}` or `{g}`."
@@ -19,8 +22,4 @@ Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
 
 Conclusion "This last message appears if the level is solved."
 
-/- Use these commands to add items to the game's inventory. -/
-
-NewTactic rw rfl
--- NewTheorem Nat.add_comm Nat.add_assoc
--- NewDefinition Nat Add Eq
+NewTactic Continuous IsCompact Filter.Eventually

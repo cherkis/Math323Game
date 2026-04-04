@@ -1,9 +1,10 @@
-import Game.Levels.S2.L03
-import Game.Levels.S2.L04
+import Game.Levels.S2_PredicateLogic.L05
+import Game.Levels.S2_PredicateLogic.L06
 
-World "Propositional Logic"
-Title "Propositional Logic"
+World "PredicateLogic"
+Title "Predicate Logic"
 
 Introduction "
-This introduction is shown before one enters level 1 of the demo world. Use markdown.
+This world contains the lecture scaffold for Stage 2 of Math 323.
+Lectures L05-L06 introduce predicates and quantifiers.
 "

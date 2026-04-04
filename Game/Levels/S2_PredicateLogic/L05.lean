@@ -1,11 +1,14 @@
 import Game.Metadata
 
-World "DemoWorlete Logic"
-Level 4
+World "PredicateLogic"
+Level 1
 
-Title "Predicates"
+Title "Universal and Existential Quantifiers"
 
-Introduction "INTRO."
+Introduction "
+This level is the scaffold for Lecture L05 of Math 323.
+Topic: Universal and existential quantifiers.
+"
 
 Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
   Hint "You can either start using `{h}` or `{g}`."
@@ -19,8 +22,4 @@ Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
 
 Conclusion "This last message appears if the level is solved."
 
-/- Use these commands to add items to the game's inventory. -/
-
-NewTactic rw rfl
--- NewTheorem Nat.add_comm Nat.add_assoc
--- NewDefinition Nat Add Eq
+NewTactic use linarith
