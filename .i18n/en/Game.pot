@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30\n"
+"POT-Creation-Date: 2026-04-03\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -12,16 +12,12 @@ msgstr "Project-Id-Version: Game v4.23.0\n"
 msgid "level completed with warnings… 🎭"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "Hello World"
-msgstr ""
-
 #: GameServer.RpcHandlers
 msgid "level completed! 🎉"
 msgstr ""
 
 #. §0: `«{g}»`
-#: Game.Levels.DemoWorld.L01_HelloWorld
+#: Game.Levels.S1_PropositionalLogic.L01
 msgid "You should use §0 now."
 msgstr ""
 
@@ -29,53 +25,44 @@ msgstr ""
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
-#: Game
-msgid "You should use this game as a template for your own game and add your own levels."
-msgstr ""
-
-#: Game
-msgid "Welcome to the Math 323 Game! This game is meant to accompany the course\n"
-"*Math 323: Formal Mathematical Reasoning and Writing* at the University of Arizona.\n"
-"\n"
-"This game was developed by the UA Mathematics Lean Group under the leadership of\n"
-"Sergey Cherkis and Rafa Munoz-Grenier."
-msgstr ""
-
-#: Game
-msgid "Here you can put additional information about the game. It is accessible\n"
-"from the starting through the drop-down menu.\n"
-"\n"
-"For example: Game version, Credits, Link to Github and Zulip, etc.\n"
-"\n"
-"Use **markdown**."
-msgstr ""
-
-#: Game.Levels.DemoWorld.L01_HelloWorld
+#: Game.Levels.S1_PropositionalLogic.L01
 msgid "This last message appears if the level is solved."
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "This text is shown as first message when the level is played.\n"
-"You can insert hints in the proof below. They will appear in this side panel\n"
-"depending on the proof a user provides."
+#: Game
+msgid "Game version 0.1, University of Arizona Lean Group, https://github.com/cherkis/Math323Game."
 msgstr ""
 
-#: Game.Levels.DemoWorld
-msgid "This introduction is shown before one enters level 1 of the demo world. Use markdown."
+#: Game
+msgid "Game for Math323 course at the University of Arizona."
+msgstr ""
+
+#: Game.Levels.S1_PropositionalLogic.L01
+msgid "Let us start with a few Lean tactics to handle basic logic operations. For each proposition we need to learn how\n"
+"- go about proving it (if that is our goal) or\n"
+"- how to use it (if it is one of our hypotheses)."
+msgstr ""
+
+#: Game
+msgid "Math323 Game"
+msgstr ""
+
+#: Game
+msgid "Welcome to Math 323 Game! This game is designed to accompany the course\n"
+"*Math 323: Formal Mathematical Reasoning and Writing* at the University of Arizona.\n"
+"\n"
+"This game was developed by the UA Mathematics Lean Group under the leadership of\n"
+"Jason Aubrey, Sergey Cherkis, and Rafa Munoz-Grenier."
 msgstr ""
 
 #. §0: `«{h}»`
 #. §1: `«{g}»`
-#: Game.Levels.DemoWorld.L01_HelloWorld
+#: Game.Levels.S1_PropositionalLogic.L01
 msgid "You can either start using §0 or §1."
 msgstr ""
 
-#: Game.Levels.DemoWorld
-msgid "Demo World"
-msgstr ""
-
-#: Game
-msgid "Game Template"
+#: Game.Levels.S1_PropositionalLogic.L01
+msgid "Introduction to Lean"
 msgstr ""
 
 #: Game
