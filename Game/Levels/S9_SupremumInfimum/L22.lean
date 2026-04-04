@@ -1,11 +1,14 @@
 import Game.Metadata
 
-World "Predicate Logic"
-Level 3
+World "SupremumInfimum"
+Level 1
 
-Title "Quantifiers"
+Title "Supremum"
 
-Introduction "INTRO."
+Introduction "
+This level is the scaffold for Lecture L22 of Math 323.
+Topic: Supremum, completeness of Real, and approximation properties.
+"
 
 Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
   Hint "You can either start using `{h}` or `{g}`."
@@ -19,8 +22,4 @@ Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
 
 Conclusion "This last message appears if the level is solved."
 
-/- Use these commands to add items to the game's inventory. -/
-
-NewTactic rw rfl
--- NewTheorem Nat.add_comm Nat.add_assoc
--- NewDefinition Nat Add Eq
+NewTactic Set.Icc Set.Ioo BddAbove upperBounds IsLUB le_csSup csSup_le le_antisymm
