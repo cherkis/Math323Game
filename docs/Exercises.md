@@ -74,6 +74,8 @@ the function is surjective
 ## Stage 7 - Cardinality
 
 - Show that every finite subset of $\N$ is bounded above
+-- Sergey: Note, this has a constructive proof without using induction.
+--      define injective $$f : S \to S, n \mapsto \min\ \{m \in S \ :\ m > n\}$$
 
 - Let $\mathcal P(\N)$ be the collection of all subsets of $\N$. For
 $S, T \in P(\N)$, say that $S\sim T$ if there are functions $f: S\to T$ and $g:T\to S$ such that $f\circ g = \mathrm{id}_T$ and
