@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.23.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-04\n"
+"POT-Creation-Date: 2026-04-10\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -127,11 +127,6 @@ msgstr ""
 msgid "Unique Existence"
 msgstr ""
 
-#: Game.Levels.S1_LeanAndLogic.L01
-msgid "This level is the scaffold for Lecture L01 of Math 323.\n"
-"Topic: Type theory, Lean syntax, and term-mode proofs."
-msgstr ""
-
 #: Game.Levels.S11_Topology
 msgid "This world contains the lecture scaffold for Stage 11 of Math 323.\n"
 "Lectures L26-L27 cover topology of the real line."
@@ -146,7 +141,6 @@ msgid "This level is the scaffold for Lecture L18 of Math 323.\n"
 "Topic: Classical witness extraction and unique existence."
 msgstr ""
 
-#: Game.Levels.S1_LeanAndLogic.L01
 #: Game.Levels.S1_LeanAndLogic.L02
 #: Game.Levels.S1_LeanAndLogic.L03
 #: Game.Levels.S1_LeanAndLogic.L04
@@ -194,6 +188,13 @@ msgstr ""
 
 #: Game.Levels.S6_Functions
 msgid "Functions"
+msgstr ""
+
+#: Game.Levels.S1_LeanAndLogic.L01
+msgid "This level is the scaffold for Lecture L01 of Math 323.\n"
+"Topic: Type theory, Lean syntax, and term-mode proofs.\n"
+"\n"
+"TO START PROVE THAT:"
 msgstr ""
 
 #: Game.Levels.S5_Relations.L12

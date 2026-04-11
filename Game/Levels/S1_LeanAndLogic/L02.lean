@@ -15,6 +15,6 @@ Statement (x y : Nat) (h : x = 2) (g: y = 4) : y = y := by
 
 Conclusion "This last message appears if the level is solved."
 
-NewTactic intro exact apply contradiction exfalso
+-- NewTactic intro exact apply contradiction exfalso
 -- NewTheorem Nat.add_comm Nat.add_assoc
 -- NewDefinition Nat Add Eq
