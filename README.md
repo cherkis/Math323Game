@@ -1,3 +1,11 @@
+# To run locally
+
+Go to your local [lean4game] repository
+and run npm start to start the development server.
+Then open your browser and navigate to
+http://localhost:3000/#/g/local/Math323Game to see the game.
+
+
 # Game Skeleton
 
 This is a template for creating a game with [lean4game](https://github.com/leanprover-community/lean4game/). It contains a single Level plus the files needed for a local development setup.
