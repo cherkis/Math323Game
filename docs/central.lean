@@ -1,4 +1,6 @@
 --import Mathlib.Tactic
+--import MIL.common
+--import Game.Metadata
 
 /-
  # Central Problems for Each Stage
@@ -6,9 +8,17 @@ Each stage should have about 2 core theorems about the concept
 -/
 
 namespace LeanAndLogic -- Stage 1
-/--
-  Human Language Proof Goes Here
--/
+
+variable (P Q R: Prop)
+
+theorem prob1: ¬ (P ∨ Q) ↔ ¬ P ∧ ¬ Q  := by sorry
+
+theorem prob2: (P ∧ Q → R) ↔ P → (Q → R) := by sorry
+
+theorem prob3: (P → Q) → (¬ Q → ¬ P) := by sorry
+
+
+
 theorem prob1 : True := sorry
 
 
