@@ -9,7 +9,7 @@ Each stage should have about 2 core theorems about the concept
 
 namespace LeanAndLogic -- Stage 1
 
-theorem prob0 : True := sorry
+theorem prob0 : True := trivial
 
 variable (P Q R: Prop)
 
@@ -29,15 +29,13 @@ theorem prob3: P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R) := by
 
 theorem prob4: (P → Q) → (P → R) → P → Q ∧ R := by
   intro hpq hpr hp
-  constructor
-  exact hpq hp
-  exact hpr hp
+  exact ⟨hpq hp, hpr hp⟩
 
 theorem prob5: (P → R) → (Q → R) → P ∨ Q → R := by
-  intro hpr hqr
-  rintro (hp | hq)
-  exact hpr hp
-  exact hqr hq
+ intro hpr hqr
+ rintro (hp | hq)
+ · exact hpr hp
+ · exact hqr hq
 
 theorem prob6: (P ∧ Q → R) ↔ P → (Q → R) := by
   constructor
@@ -52,20 +50,13 @@ theorem prob7: P → P ∨ Q := by
 
 theorem prob8: ¬ (P ∨ Q) ↔ ¬ P ∧ ¬ Q  := by
   constructor
-  intro hnpq
-  constructor
-  intro hp
-  have : P ∨ Q := by
-    left; exact hp
-  contradiction
-  intro hq
-  have : P ∨ Q := by
-    right; exact hq
-  contradiction
-  intro ⟨hnp,hnq⟩
-  rintro (hp | hq)
-  contradiction
-  contradiction
+  · intro h
+    constructor
+    · intro hp; exact h (Or.inl hp)
+    · intro hq; exact h (Or.inr hq)
+  · rintro ⟨hnp, hnq⟩ (hp | hq)
+    · exact hnp hp
+    · exact hnq hq
 
 theorem prob10: (P → Q) → (¬ Q → ¬ P) := by
   intro hpq hnq hp
