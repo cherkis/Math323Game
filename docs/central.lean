@@ -9,23 +9,33 @@ Each stage should have about 2 core theorems about the concept
 
 namespace LeanAndLogic -- Stage 1
 
+theorem prob0 : True := sorry
+
 variable (P Q R: Prop)
 
-theorem prob1: ¬ (P ∨ Q) ↔ ¬ P ∧ ¬ Q  := by sorry
+theorem prob1: P ∧ Q → Q ∧ P := by sorry
 
-theorem prob2: (P ∧ Q → R) ↔ P → (Q → R) := by sorry
+theorem prob2: P ∨ Q → Q ∨ P := by sorry
 
-theorem prob3: (P → Q) → (¬ Q → ¬ P) := by sorry
+theorem prob3: P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R)
 
+theorem prob4: (P → Q) → (P → R) → P → Q ∧ R := by sorry
 
+theorem prob5: (P → R) → (Q → R) → P ∨ Q → R := by sorry
 
-theorem prob1 : True := sorry
+theorem prob6: (P ∧ Q → R) ↔ P → (Q → R) := by sorry
 
+theorem prob7: ¬ (P ∨ Q) ↔ ¬ P ∧ ¬ Q  := by sorry
+
+theorem prob8: ¬(P ∨ Q) ↔ ¬P ∧ ¬Q := by sorry
+
+theorem prob9: (P → Q) → (¬ Q → ¬ P) := by sorry
+
+theorem prob10: ¬¬P → P := by sorry
 
 /--
   Human Language Proof Goes Here
 -/
-theorem prob2 : True := sorry
 
 end LeanAndLogic
 
