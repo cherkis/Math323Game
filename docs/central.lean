@@ -13,25 +13,72 @@ theorem prob0 : True := sorry
 
 variable (P Q R: Prop)
 
-theorem prob1: P ∧ Q → Q ∧ P := by sorry
+theorem prob1: P ∧ Q → Q ∧ P := by
+  intro ⟨hp,hq⟩
+  exact ⟨hq,hp⟩
 
-theorem prob2: P ∨ Q → Q ∨ P := by sorry
+theorem prob2: P ∨ Q → Q ∨ P := by
+  rintro (hp | hq)
+  · right; exact hp
+  · left; exact hq
 
-theorem prob3: P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R)
+theorem prob3: P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R) := by
+  rintro ⟨hp,(hq | hr)⟩
+  · left; exact ⟨hp,hq⟩
+  · right; exact ⟨hp,hr⟩
 
-theorem prob4: (P → Q) → (P → R) → P → Q ∧ R := by sorry
+theorem prob4: (P → Q) → (P → R) → P → Q ∧ R := by
+  intro hpq hpr hp
+  constructor
+  exact hpq hp
+  exact hpr hp
 
-theorem prob5: (P → R) → (Q → R) → P ∨ Q → R := by sorry
+theorem prob5: (P → R) → (Q → R) → P ∨ Q → R := by
+  intro hpr hqr
+  rintro (hp | hq)
+  exact hpr hp
+  exact hqr hq
 
-theorem prob6: (P ∧ Q → R) ↔ P → (Q → R) := by sorry
+theorem prob6: (P ∧ Q → R) ↔ P → (Q → R) := by
+  constructor
+  intro hpqr hp hq
+  exact hpqr ⟨hp,hq⟩
+  intro hpqr ⟨hp,hq⟩
+  exact hpqr hp hq
 
-theorem prob7: ¬ (P ∨ Q) ↔ ¬ P ∧ ¬ Q  := by sorry
+theorem prob7: P → P ∨ Q := by
+  intro hp
+  left; exact hp
 
-theorem prob8: ¬(P ∨ Q) ↔ ¬P ∧ ¬Q := by sorry
+theorem prob8: ¬ (P ∨ Q) ↔ ¬ P ∧ ¬ Q  := by
+  constructor
+  intro hnpq
+  constructor
+  intro hp
+  have : P ∨ Q := by
+    left; exact hp
+  contradiction
+  intro hq
+  have : P ∨ Q := by
+    right; exact hq
+  contradiction
+  intro ⟨hnp,hnq⟩
+  rintro (hp | hq)
+  contradiction
+  contradiction
 
-theorem prob9: (P → Q) → (¬ Q → ¬ P) := by sorry
+theorem prob10: (P → Q) → (¬ Q → ¬ P) := by
+  intro hpq hnq hp
+  exact hnq (hpq hp)
 
-theorem prob10: ¬¬P → P := by sorry
+theorem prob11_1: ¬¬P → P := by
+  exact Classical.not_not.mp
+
+theorem prob11_2: P → ¬¬P := by
+  intro hp
+  intro hnp
+  contradiction
+
 
 /--
   Human Language Proof Goes Here
