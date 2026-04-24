@@ -10,15 +10,17 @@ This level is the scaffold for Lecture L06 of Math 323.
 Topic: Quantifiers with concrete examples.
 "
 
-Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
-  Hint "You can either start using `{h}` or `{g}`."
-  Branch
-    rw [g]
-    Hint "You should use `{h}` now."
-    rw [h]
-  rw [h]
-  Hint "You should use `{g}` now."
-  rw [g]
+Statement {X : Type} (P : X → Prop) (Q : Prop) :
+  ((∃ x, P x) → Q) ↔ (∀ x, P x → Q) := by
+  constructor
+  · intro h x hx
+    apply h
+    use x
+  · intro h h'
+    obtain ⟨x, hx⟩ := h'
+    apply h x
+    exact hx
+
 
 Conclusion "This last message appears if the level is solved."
 

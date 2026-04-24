@@ -39,6 +39,6 @@ Statement (x y : Nat) (h : x = 2) (g: y = 4) : y = y := by
 Conclusion "This last message appears if the level is solved."
 -/
 
-NewTactic rfl intro rewrite
+NewTactic rfl intro rewrite use exact apply
 -- NewTheorem Nat.add_comm Nat.add_assoc
 -- NewDefinition Nat Add Eq

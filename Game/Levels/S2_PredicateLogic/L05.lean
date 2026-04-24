@@ -10,15 +10,21 @@ This level is the scaffold for Lecture L05 of Math 323.
 Topic: Universal and existential quantifiers.
 "
 
-Statement (x y : Nat) (h : x = 2) (g: y = 4) : x + x = y := by
-  Hint "You can either start using `{h}` or `{g}`."
-  Branch
-    rw [g]
-    Hint "You should use `{h}` now."
-    rw [h]
-  rw [h]
-  Hint "You should use `{g}` now."
-  rw [g]
+Statement {X : Type} (P : X → Prop) :
+  (¬ (∀ x, P x) ↔ ∃ x, ¬ P x):= by
+  constructor
+  · intro h
+    by_contra h'
+    apply h
+    intro x
+    by_contra h''
+    apply h'
+    use x
+  · intro h h'
+    obtain ⟨x, hx⟩ := h
+    apply hx
+    exact h' x
+
 
 Conclusion "This last message appears if the level is solved."
 

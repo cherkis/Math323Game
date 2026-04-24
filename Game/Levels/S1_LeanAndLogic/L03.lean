@@ -15,6 +15,6 @@ Statement (x y : Nat) (h : x = 2) (g: y = 4) : y = y := by
 
 Conclusion "This last message appears if the level is solved."
 
-NewTactic dsimp constructor rintro
+NewTactic dsimp constructor rintro rcases left right
 -- NewTheorem Nat.add_comm Nat.add_assoc
 -- NewDefinition Nat Add Eq
