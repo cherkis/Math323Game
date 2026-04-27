@@ -130,7 +130,16 @@ namespace Induction -- Stage 3
 /--
   Human Language Proof Goes Here
 -/
-theorem prob1 : True := sorry
+theorem prob1 : ∀ n : Nat, n ≤ n^2 := by
+  intro n
+  cases n with
+  | zero => apply le_refl
+  | succ n =>
+    ring_nf
+    rw [add_assoc]
+    apply Nat.add_le_add_left
+    rw [mul_two, add_assoc]
+    exact Nat.le_add_right n _
 
 
 /--
@@ -159,32 +168,145 @@ end Sets
 
 
 namespace Relations -- Stage 5
+
+def nat_div : Nat → Nat → Prop := fun a => fun b => ∃ k, a * k = b
+
+def reflexive {X : Type} (rel : X → X → Prop) : Prop :=
+  ∀ x : X, rel x x
+
+def symmetric {X : Type} (rel : X → X → Prop) : Prop :=
+  ∀ x y : X, rel x y → rel y x
+
+def transitive {X : Type} (rel : X → X → Prop) : Prop :=
+  ∀ x y z : X, rel x y → rel y z → rel x z
+
+def antisymmetric {X : Type} (rel : X → X → Prop) : Prop :=
+  ∀ x y : X, rel x y → rel y x → x = y
+
+structure partial_order {X : Type} (rel : X → X → Prop) where
+  refl : reflexive rel
+  trans : transitive rel
+  antisymm : antisymmetric rel
+
 /--
   Human Language Proof Goes Here
 -/
-theorem prob1 : True := sorry
+theorem prob1 : partial_order nat_div := by
+  constructor
+  · intro a
+    use 1
+    rw [mul_one]
+  · rintro a b c ⟨j, hj⟩ ⟨k, hk⟩
+    use j*k
+    rw [←mul_assoc, hj, hk]
+  · have : ∀ {a b}, b > 0 → nat_div a b → a ≤ b := by
+      rintro a b bpos ⟨k, hk⟩
+      rw [←hk]
+      cases a with
+      | zero => norm_num
+      | succ n =>
+        norm_num
+        show 0 < k
+        suffices k ≠ 0 by {exact Nat.zero_lt_of_ne_zero this}
+        intro kzero
+        subst kzero
+        rw [mul_zero] at hk
+        rw [←hk] at bpos
+        apply lt_irrefl 0
+        exact bpos
+    intro a b hab hba
+    rcases Nat.eq_zero_or_pos a with (ha | ha)
+    · subst ha
+      obtain ⟨p, hp⟩ := hab
+      rw [←hp, zero_mul]
+    rcases Nat.eq_zero_or_pos b with (hb | hb)
+    · subst hb
+      obtain ⟨p, hp⟩ := hba
+      rw [←hp, zero_mul]
+    apply le_antisymm
+    apply this hb hab
+    apply this ha hba
+
+
+
 
 
 /--
   Human Language Proof Goes Here
 -/
-theorem prob2 : True := sorry
+theorem prob2 : Equivalence (fun a => fun b => nat_div 2 (a+b)) := by
+  constructor
+  · intro x
+    use x
+    exact Nat.two_mul x
+    done
+  · intro x y ⟨k, hk⟩
+    use k
+    rw [add_comm]
+    exact hk
+    done
+  · intro x y z ⟨j, hj⟩ ⟨k, hk⟩
+    use (j + k) - y
+    rw [mul_tsub, mul_add, hj, hk, add_assoc, ←add_assoc y, ←two_mul]
+    rw [add_comm, add_assoc, Nat.add_sub_self_left, add_comm]
+    done
 
 end Relations
 
 
 
 namespace Functions -- Stage 6
+
+def fun_rel {X Y : Type} (f : X → Y) : X → X → Prop :=
+  fun a => fun b => f a = f b
+
 /--
   Human Language Proof Goes Here
 -/
-theorem prob1 : True := sorry
+theorem prob1 {X Y : Type} (f : X → Y) : Equivalence $ fun_rel f  := by
+  constructor
+  · intro x
+    rfl
+    done
+  · intro x y hxy
+    unfold fun_rel at *
+    rw [hxy]
+    done
+  · intro x y z
+    unfold fun_rel
+    intro h h'
+    rw [h, h']
+    done
 
 
 /--
   Human Language Proof Goes Here
 -/
-theorem prob2 : True := sorry
+theorem prob2 {X Y : Type} (f : X → Y) [Inhabited X] :
+  (∃ g : Y → X, ∀ x, g (f x) = x) ↔ Function.Injective f := by
+  constructor
+  rintro ⟨g, hg⟩
+  intro x₁ x₂ h
+  rw [←hg x₁, ←hg x₂, h]
+  intro h
+  use Function.invFun f
+  intro x
+  sorry
+
+
+
+#check Function.invFun
+
+theorem prob3 {X Y : Type} (f : X → Y) :
+  (∃ g : Y → X, ∀ y, f (g y) = y) ↔ Function.Surjective f := by
+  constructor
+  rintro ⟨g, hg⟩
+  intro b
+  use g b
+  exact hg b
+  intro h
+  choose g hg using h
+  use g
 
 end Functions
 
