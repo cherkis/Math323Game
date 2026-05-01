@@ -169,7 +169,7 @@ end Sets
 
 namespace Relations -- Stage 5
 
-def nat_div : Nat → Nat → Prop := fun a => fun b => ∃ k, a * k = b
+def int_div : Int → Int → Prop := fun a => fun b => ∃ k : Nat, a * k = b
 
 def reflexive {X : Type} (rel : X → X → Prop) : Prop :=
   ∀ x : X, rel x x
@@ -191,65 +191,45 @@ structure partial_order {X : Type} (rel : X → X → Prop) where
 /--
   Human Language Proof Goes Here
 -/
-theorem prob1 : partial_order nat_div := by
+theorem prob1 : partial_order int_div := by
   constructor
-  · intro a
+  · intro x
     use 1
-    rw [mul_one]
-  · rintro a b c ⟨j, hj⟩ ⟨k, hk⟩
-    use j*k
-    rw [←mul_assoc, hj, hk]
-  · have : ∀ {a b}, b > 0 → nat_div a b → a ≤ b := by
-      rintro a b bpos ⟨k, hk⟩
-      rw [←hk]
-      cases a with
-      | zero => norm_num
-      | succ n =>
-        norm_num
-        show 0 < k
-        suffices k ≠ 0 by {exact Nat.zero_lt_of_ne_zero this}
-        intro kzero
-        subst kzero
-        rw [mul_zero] at hk
-        rw [←hk] at bpos
-        apply lt_irrefl 0
-        exact bpos
-    intro a b hab hba
-    rcases Nat.eq_zero_or_pos a with (ha | ha)
-    · subst ha
-      obtain ⟨p, hp⟩ := hab
-      rw [←hp, zero_mul]
-    rcases Nat.eq_zero_or_pos b with (hb | hb)
-    · subst hb
-      obtain ⟨p, hp⟩ := hba
-      rw [←hp, zero_mul]
-    apply le_antisymm
-    apply this hb hab
-    apply this ha hba
-
-
-
+    rw [Nat.cast_one, mul_one]
+  · rintro x y z ⟨k, hk⟩ ⟨l, hl⟩
+    use k*l
+    rw [Nat.cast_mul, ←mul_assoc, hk, hl]
+  · rintro x y ⟨a, ha⟩ ⟨b, hb⟩
+    rcases eq_or_ne x 0 with (subst | xne0)
+    · subst subst
+      rw [←ha, zero_mul]
+    rw [←ha, mul_assoc, ←sub_eq_zero, ←mul_one x, mul_assoc, ←mul_sub] at hb
+    rw [Int.mul_eq_zero, one_mul, sub_eq_zero] at hb
+    rcases hb with ⟨xz | h⟩
+    · linarith
+    rw [Int.mul_eq_one_iff_eq_one_or_neg_one] at h
+    rcases h with (⟨h, _⟩|⟨h, _⟩)
+    · rw [h, mul_one] at ha
+      exact ha
+    exfalso
+    linarith
 
 
 /--
   Human Language Proof Goes Here
 -/
-theorem prob2 : Equivalence (fun a => fun b => nat_div 2 (a+b)) := by
+theorem prob2 (n : Int) : Equivalence (fun a => fun b => ∃ k, n * k = a - b) := by
   constructor
   · intro x
-    use x
-    exact Nat.two_mul x
-    done
-  · intro x y ⟨k, hk⟩
-    use k
-    rw [add_comm]
-    exact hk
-    done
-  · intro x y z ⟨j, hj⟩ ⟨k, hk⟩
-    use (j + k) - y
-    rw [mul_tsub, mul_add, hj, hk, add_assoc, ←add_assoc y, ←two_mul]
-    rw [add_comm, add_assoc, Nat.add_sub_self_left, add_comm]
-    done
+    use 0
+    norm_num
+  · rintro x y ⟨k, hk⟩
+    use -k
+    rw [mul_neg, hk, neg_sub]
+  · rintro x y z ⟨k, hk⟩ ⟨l, hl⟩
+    use k + l
+    rw [mul_add, hk, hl]
+    norm_num
 
 end Relations
 
@@ -332,29 +312,43 @@ namespace NumberSystems -- Stage 8
 /--
   Human Language Proof Goes Here
 -/
-theorem prob1 : True := sorry
+theorem prob1 : ∃ S : Set Int, S.Nonempty ∧ ∀ n ∈ S, ∃ m ∈ S, m < n := sorry
 
 
 /--
   Human Language Proof Goes Here
 -/
-theorem prob2 : True := sorry
+theorem prob2 {F : Type} [Field F] : ∀ x : F, x * 0 = x := sorry
+
+theorem prob3 {p : Nat} (hp : Nat.Prime p) : ∀ q : Rat, q*q ≠ p := sorry
+
+theorem prob4 : ∀ x : Real, ∃ n : Nat, x < n := sorry
+
+
 
 end NumberSystems
 
 
 
 namespace SupInf -- Stage 9
+
+def isSup {X : Type} [PartialOrder X] (S : Set X) (m : X) : Prop :=
+  (∀ x ∈ S, x ≤ m) ∧ (∀ m' : X, (∀ x ∈ S, x ≤ m') → m ≤ m')
+def isInf {X : Type} [PartialOrder X] (S : Set X) (m : X) : Prop :=
+  (∀ x ∈ S, m ≤ x) ∧ (∀ m' : X, (∀ x ∈ S, m' ≤ x) → m' ≤ m)
+
 /--
   Human Language Proof Goes Here
 -/
-theorem prob1 : True := sorry
+theorem prob1 {X : Type} [PartialOrder X] (S : Set X) (m m' : X) :
+  isSup S m → isSup S m' → m = m' := sorry
 
+def S_recip : Set Real := {x | ∃ n : Nat, x = (n+1 : Real)⁻¹}
 
 /--
   Human Language Proof Goes Here
 -/
-theorem prob2 : True := sorry
+theorem prob2 : isInf S_recip 0 := sorry
 
 end SupInf
 
