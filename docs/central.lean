@@ -97,7 +97,100 @@ namespace PredicateLogic -- Stage 2
 
 -/
 theorem quantifier_negation {X : Type} (P : X → Prop) :
-  (¬ (∀ x, P x) ↔ ∃ x, ¬ P x):= sorry
+  (¬ (∀ x, P x) ↔ ∃ x, ¬ P x) := sorry
+
+theorem prob2 {X Y : Type} (P : X → Y → Prop) :
+  (∃ y, ∀ x, P x y) → (∀ x, ∃ y, P x y) := by
+  rintro ⟨y, hy⟩ x
+  use y
+  apply hy
+
+
+theorem prob3 {X : Type} (x₁ x₂ : X) (h : x₁ ≠ x₂) :
+  ∃ P : X → X → Prop,
+  ¬ ((∀ x, ∃ y, P x y) → (∃ y, ∀ x, P x y)) := by
+  use fun x => fun y => x=y
+  rw [Classical.not_imp]
+  constructor
+  · intro x
+    use x
+  · push_neg
+    intro y
+    rcases eq_or_ne x₁ y with (hy | hy)
+    · use x₂
+      intro hy'
+      apply h
+      rw [hy, hy']
+    · use x₁
+
+theorem prob4 (A P Q : Prop) :
+  ((A → P) ∨ (A → Q)) ↔ A → P ∨ Q := by
+    constructor
+    · rintro (hp | hq) ha
+      · left
+        apply hp
+        exact ha
+      · right
+        apply hq
+        exact ha
+    · intro h
+      rcases Classical.em A with (ha | hna)
+      · rcases h ha with (hp | hq)
+        · left
+          intro _
+          exact hp
+        · right
+          intro _
+          exact hq
+      · left
+        intro ha
+        exfalso
+        apply hna
+        exact ha
+
+
+theorem prob4_1 {X : Type} (P Q : X → Prop) :
+  ((∀ x, P x) ∨ (∀ x, Q x)) → ∀ x, P x ∨ Q x := by
+    rintro (hP | hQ) x
+    · left
+      apply hP
+    · right
+      apply hQ
+
+theorem prob4_2 {X : Type} (x₁ x₂ : X) (h : x₁ ≠ x₂) : ∃ P Q : X → Prop,
+  ¬(∀ x, P x ∨ Q x → ((∀ x, P x) ∨ (∀ x, Q x))) := by
+  use fun x => x = x₁, fun x => x = x₂
+  push_neg
+  use x₁
+  constructor
+  · left
+    rfl
+  constructor
+  · use x₂
+    intro h'
+    apply h
+    rw [h']
+  · use x₁
+
+
+theorem prob5 {X : Type} (P Q : X → Prop) :
+  (∀ x, P x ∧ Q x) ↔ (∀ x, P x) ∧ (∀ x, Q x) := by
+    constructor
+    · intro h
+      constructor
+      · intro x
+        specialize h x
+        obtain ⟨hp, _⟩ := h
+        exact hp
+      · intro x
+        specialize h x
+        obtain ⟨_, hq⟩ := h
+        exact hq
+    · rintro ⟨hp, hq⟩ x
+      specialize hp x
+      specialize hq x
+      exact ⟨hp, hq⟩
+
 
 
 /--
@@ -299,10 +392,45 @@ namespace Cardinality -- Stage 7
 theorem Cantor (X : Type) (f : X → Set X) :
   ¬ Function.Surjective f := sorry
 
+def rel {X : Type}: Set X → Set X → Prop := fun S ↦ fun T ↦
+  ∃ f : S → T, ∃ g : T → S, f ∘ g = id ∧ g ∘ f = id
+
+
 /--
   Human Language Proof Goes Here
 -/
-theorem prob2 : True := sorry
+theorem prob2 {X : Type} : Equivalence $ @rel X := by
+  constructor
+  · intro S
+    use id, id
+    rw [CompTriple.comp_eq, and_self]
+    done
+  · intro S T ⟨f, g, hfg, hgf⟩
+    use g, f
+    done
+  · intro S T U ⟨f, g, hfg, hgf⟩ ⟨j, k, hjk, hkj⟩
+    unfold rel
+    use j ∘ f
+    use g ∘ k
+    rw [←Function.comp_assoc, Function.comp_assoc j, hfg]
+    rw [Function.comp_id, hjk]
+    use rfl
+    rw [←Function.comp_assoc, Function.comp_assoc g, hkj]
+    rw [Function.comp_id, hgf]
+
+instance Std_inst {X : Type} : Setoid (Set X) := ⟨rel, prob2⟩
+
+def ordinal : Type := Quotient $ @Std_inst Nat
+
+def ord_mk (S : Set Nat) : ordinal := Quotient.mk' S
+
+theorem prob3 : Infinite ordinal := sorry
+
+
+
+
+
+
 
 end Cardinality
 
@@ -321,6 +449,26 @@ theorem prob1 : ∃ S : Set Int, S.Nonempty ∧ ∀ n ∈ S, ∃ m ∈ S, m < n 
 theorem prob2 {F : Type} [Field F] : ∀ x : F, x * 0 = x := sorry
 
 theorem prob3 {p : Nat} (hp : Nat.Prime p) : ∀ q : Rat, q*q ≠ p := sorry
+
+/-
+def irrational (x : Real) : Prop := ∀ q : Rat, x ≠ ↑q
+noncomputable def root2 : Real := Real.sqrt 2
+axiom obv : irrational root2
+
+theorem prob3_5 : ∃ α β : Real, irrational α ∧ irrational β ∧ α^β ∈ (Set.range Rat.cast) := by
+  rcases Classical.em (irrational (root2^root2)) with (h | h)
+  · use root2 ^ root2, root2, h, obv
+    use 2
+    push_cast
+    sorry
+  · use root2, root2, obv, obv
+    contrapose! h
+    intro q hq
+    apply h
+    rw [Set.mem_range]
+    use q
+    rw [hq]
+-/
 
 theorem prob4 : ∀ x : Real, ∃ n : Nat, x < n := sorry
 
@@ -349,6 +497,20 @@ def S_recip : Set Real := {x | ∃ n : Nat, x = (n+1 : Real)⁻¹}
   Human Language Proof Goes Here
 -/
 theorem prob2 : isInf S_recip 0 := sorry
+
+variable {X : Type} {Y : Type} [PartialOrder Y]
+
+def bdd_above (f : X → Y) : Prop :=
+  ∃ M : Y, ∀ x, f x ≤ M
+
+def isFunSup (f : X → Y) (M : Y) : Prop := isSup (f '' (Set.univ)) M
+
+theorem prob3 {f g : X → ℝ} (hf : bdd_above f) (hg : bdd_above g) :
+  bdd_above (f + g) := sorry
+
+theorem prob4 {f g : X → ℝ} (hf : bdd_above f) (hg : bdd_above g)
+  {fM gM y : ℝ} (hf' : isFunSup f fM) (hg' : isFunSup g gM)
+  (h : isFunSup (f+g) y) : y ≤ fM + gM := sorry
 
 end SupInf
 
